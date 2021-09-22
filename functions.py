@@ -60,10 +60,8 @@ def world_info(arr):
                 elif non <= 5:
                     pass
             world_info.append({
-                "index": (i,j),
-                "value": value,
-                "neighbors": new_neighbors,
                 "ones_around": non,
                 "change": change
                 })
     return world_info
+#removed from world_info
