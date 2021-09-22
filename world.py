@@ -28,16 +28,14 @@ class World(object):
 
 	def smoothen_land(self):
 		info = nest_list(world_info(self.world_map),self.height,self.width)
-
 		for row in range(self.height):
 			for col in range(self.width):
-				if 4 <= info[row][col]['ones_around'] >= 8  :
+				if 4 <= info[row][col]['ones_around'] <= 8  :
 					info[row][col]['change'] = 1
-				if 4 <= 8-(info[row][col]['ones_around']) >= 8  :
-					info[row][col]['change'] = 0 
+				if 5 <= 1-(info[row][col]['ones_around']) <= 8  :
+					info[row][col]['change'] = 0
 		for row in range(self.height):
 			for col in range(self.width):
 				self.world_map[row][col] = info[row][col]['change']
-
 
 		
