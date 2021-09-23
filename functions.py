@@ -45,23 +45,16 @@ def world_info(arr):
                 ]
             non = 0
             for e in new_neighbors:
-                if e == 1:
-                    non = non + 1
-                    
-            change = arr[i][j]
-            if arr[i][j] == 1:
-                if non <= 2:
-                   change = 0
-                elif non >= 3:
-                    pass
-            elif arr[i][j] == 0:
-                if non > 5:
-                    change = 1
-                elif non <= 5:
-                    pass
+                non += e
+            change = round(non/8,1)
             world_info.append({
-                "ones_around": non,
                 "change": change
                 })
     return world_info
-#removed from world_info
+
+
+def biase(lst,probability):
+    zipped = zip(lst,probability)
+    lst = [[i[0]] * int(i[1]*100) for i in zipped]
+    new = [b for i in lst for b in i]
+    return new
