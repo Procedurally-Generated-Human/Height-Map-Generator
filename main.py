@@ -13,27 +13,16 @@ rodinia = World(height = world_height, width = world_width)
 walker = RandomWalker(start_x = center_x, start_y = center_y)
 
 # draw big continent in the middle
-for e in range(50):
-	walker.biased_walk(rodinia, 80000, [0.2,0.2,0.5,0.5])
-	walker.move_to_position(center_x, center_y)
+for e in range(350):
+	walker.biased_walk(rodinia, 100000, [0.2,0.2,0.5,0.5])
+	walker.move_to_position(rd.randint(150,850), rd.randint(300,1700))
 
-# draw a few small islands
-for e in range(6):
-	walker.move_to_position(rd.randint(0,999), rd.randint(0,1999))
-	walker.random_walk(rodinia, rd.randint(12000,15000))
-
-# draw many very small islands
-for e in range(25):
-	walker.move_to_position(rd.randint(0,999), rd.randint(0,1999))
-	walker.random_walk(rodinia, rd.randint(3000,10000))
 
 # show un-smoothened map
-rodinia.show()
+rodinia.show_elevation_map()
 
-# smoothen map using cellular automata
-for e in range(20):
+
+
+for e in range(30):
 	rodinia.smoothen_land()
-
-# show smoothed map
-rodinia.show()
-
+rodinia.show_elevation_map()
