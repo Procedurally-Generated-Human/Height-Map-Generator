@@ -21,12 +21,19 @@ class RandomWalker:
 			self.y += -1
 		elif self.y == 0:
 			self.y += 1
-		world.water_to_land(self.x, self.y)
+		world.increase_elevation(self.x, self.y)
 
 
 	def random_walk(self, world, number_of_steps):
 		for step in range(0, number_of_steps):
 			self.random_step(world)
+
+
+	def multiple_random_walks(self, world, number_of_walks ,number_of_steps ,start_x ,start_y):
+		for walk in range(0,number_of_walks):
+			self.move_to_position(start_x, start_y)
+			self.random_walk(world, number_of_steps)
+
 
 
 	def biased_step(self, world, bias):
@@ -42,12 +49,18 @@ class RandomWalker:
 			self.y += -1
 		elif self.y == 0:
 			self.y += 1
-		world.water_to_land(self.x, self.y)
+		world.increase_elevation(self.x, self.y)
 
 
 	def biased_walk(self, world, number_of_steps, bias):
 		for step in range(0, number_of_steps):
 			self.biased_step(world, bias)
+
+
+	def multiple_biased_walks(self, world, number_of_walks ,number_of_steps ,start_x ,start_y, bias):
+		for walk in range(0,number_of_walks):
+			self.move_to_position(start_x, start_y)
+			self.biased_walk(world, number_of_steps, bias)
 
 
 	def move_to_position(self, x, y):
