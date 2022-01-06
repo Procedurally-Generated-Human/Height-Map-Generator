@@ -5,7 +5,7 @@ example map:
 ![Alt text](https://github.com/Procedurally-Generated-Human/Rodinia-World-Generator/blob/main/40gen-height-map.png?raw=true "Title")
 
 Note: I do not plan to continue this project in the near future. it is currently only a height map generator.  
-Also i found out that pythons speed is not enough for such a project, i am currently looking into converting it into c++ or c
+Also i found out that python's speed is not enough for such a project, i am currently looking into converting it to c++ or c
 
 # Updates
 - added biased movement
